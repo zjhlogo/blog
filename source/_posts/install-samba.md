@@ -1,7 +1,7 @@
 ---
-title: Install samba.js
+title: 树莓派上安装samba服务
 date: 2019-08-25 20:09:44
-tags:
+tags:[unix][raspberry pi]
 ---
 ## 安装Samba
 
