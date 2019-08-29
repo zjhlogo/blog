@@ -1,7 +1,9 @@
 ---
 title: 树莓派上安装samba服务
 date: 2019-08-25 20:09:44
-tags:[unix][raspberry pi]
+tags:
+- unix
+- raspberry pi
 ---
 ## 安装Samba
 

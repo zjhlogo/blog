@@ -1,7 +1,9 @@
 ---
 title: 在树莓派上安装nodejs
 date: 2019-08-24 15:15:44
-tags:[unix][raspberry pi]
+tags:
+- unix
+- raspberry pi
 ---
 ## 安装步骤
 

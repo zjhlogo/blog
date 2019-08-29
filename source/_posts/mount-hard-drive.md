@@ -1,7 +1,9 @@
 ---
 title: 在树莓派上安装外置硬盘
 date: 2019-08-25 21:51:44
-tags:[unix][raspberry pi]
+tags:
+- unix
+- raspberry pi
 ---
 ## 插上硬盘，查看状态
 ```bash
