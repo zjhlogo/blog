@@ -73,9 +73,18 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: jekyll
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+
+jekyll:
+  project: false
+  selfIntro: true
+  sign_image: image/bear.svg
+
+# Social
+social:
+  github: https://github.com/zjhlogo
