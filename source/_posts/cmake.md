@@ -11,7 +11,7 @@ tags:
 ```bash
 cmake -DCMAKE_INSTALL_PREFIX=d:/code/libraries ..
 ```
-之后就可以在```CMakeLists.txt```中使用该变量
+之后就可以在 ``` CMakeLists.txt ``` 中使用该变量
 ```cmake
 # find glfw3 from library
 find_package(glfw3 PATHS ${CMAKE_INSTALL_PREFIX} NO_DEFAULT_PATH REQUIRED)
@@ -80,7 +80,8 @@ macro(group_sources SOURCE_FILES)
 	endforeach()
 endmacro()
 ```
-之后在```CMakeLists.txt```中使用宏
+之后在 ``` CMakeLists.txt ``` 中使用宏
+
 ```cmake
 set(SOURCE_FILES
 HelloWorldApp.cpp
