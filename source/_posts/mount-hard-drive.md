@@ -2,7 +2,6 @@
 title: 在树莓派上安装外置硬盘
 date: 2019-08-25 21:51:44
 tags:
-- unix
 - raspberry pi
 ---
 ## 插上硬盘，查看状态
@@ -34,6 +33,7 @@ $ sudo nano /etc/fstab
 /dev/sda1 /home/pi/nas auto defaults, noatime, umask=0000 0 0
 ```
 说明：
+
 * sda1是取决于你的实际情况，a表示第一个硬盘，1表示第一个分区
 * umask=0000 0 0
    * 前面四个0就是对所有人,可读可写可执行
@@ -41,7 +41,12 @@ $ sudo nano /etc/fstab
       * 第一个代表dump, 0是不备份
       * 第二个代表fsck检查的顺序, 0表示不检查
 
-## 卸载
+## 挂载硬盘
+```bash
+$ sudo mount -a
+```
+
+## 卸载硬盘
 ```bash
 $ sudo umount /home/pi/nas
 ```
