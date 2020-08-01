@@ -4,6 +4,7 @@ date: 2019-08-25 21:51:44
 tags:
 - raspberry pi
 ---
+
 ## 插上硬盘，查看状态
 ```bash
 $ sudo fdisk -l
@@ -24,14 +25,17 @@ $ sudo mount /dev/sda1 /home/pi/nas
 $ sudo apt-get install ntfs-3g
 $ modprobe fuse # 加载内核模块
 ```
+
 ## 让移动硬盘开机自动挂载
 ```bash
 $ sudo nano /etc/fstab
 ```
+
 最后一行添加
 ```
 /dev/sda1 /home/pi/nas auto defaults, noatime, umask=0000 0 0
 ```
+
 说明：
 
 * sda1是取决于你的实际情况，a表示第一个硬盘，1表示第一个分区
