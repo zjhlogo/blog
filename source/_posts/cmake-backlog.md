@@ -6,12 +6,12 @@ tags:
 - build system
 ---
 
-- ## 指定库目录（通常windows系统下使用 ）
+- ## 指定安装库目录
 
 ```bash
 cmake -DCMAKE_INSTALL_PREFIX=d:/code/libraries ..
 ```
-之后就可以在 ``` CMakeLists.txt ``` 中使用该变量
+之后就可以在 ` CMakeLists.txt ` 中使用该变量
 ```cmake
 # find glfw3 from library
 find_package(glfw3 PATHS ${CMAKE_INSTALL_PREFIX} NO_DEFAULT_PATH REQUIRED)
@@ -80,7 +80,7 @@ macro(group_sources SOURCE_FILES)
 	endforeach()
 endmacro()
 ```
-之后在 ``` CMakeLists.txt ``` 中使用宏
+之后在 ` CMakeLists.txt ` 中使用宏
 
 ```cmake
 set(SOURCE_FILES
@@ -100,4 +100,4 @@ cmake ..
 cmake -LA
 ```
 
-you can do ``` cmake -LAH ``` too. The H flag will provide you help for each options
+you can do ` cmake -LAH ` too. The H flag will provide you help for each options

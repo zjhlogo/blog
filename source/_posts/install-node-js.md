@@ -25,3 +25,4 @@ $ sudo ln -s /usr/local/node/bin/node /usr/bin/node
 # make soft link for npm
 $ sudo ln -s /usr/local/node/lib/npm /usr/bin/npm
 ```
+
