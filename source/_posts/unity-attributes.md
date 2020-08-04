@@ -19,6 +19,8 @@ tags:
   }
   ```
 
+  
+  
 - MenuItem
 
   作用于静态方法，为主菜单和 Inspector context menu 添加选项。可添加快捷键：%（ctrl 或 command，区别于 Windows 或 MacOS）#（Shift）&（Alt）LEFT （左Shift）LEFT, RIGHT, UP, DOWN, F1 .. F12, HOME, END, PGUP, PGDN等
@@ -31,13 +33,30 @@ tags:
   {
   }
   ```
+  
+  
 
 
 ## 其他
 
+- RuntimeInitializeOnLoadMethod: Calls a method once before or after the first scene has loaded. Good for initializing Singletons without having to place objects in the scene.
+
+  ```c#
+  [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+  static void OnLoad()
+  {
+      Debug.Log("Create Singletons");
+  }
+  ```
+
+
+
 - InitializeOnLoadAttribute
 
   作用于静态方法（构造方法），当 Unity 加载时或脚本重编译时初始化编辑器类
+  
+  
+
 
 - InitializeOnLoadMethodAttribute
 
