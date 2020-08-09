@@ -6,6 +6,7 @@ tags:
 - npm
 - raspberry pi
 ---
+
 ## 安装步骤
 - 下载安装包 [官网](https://nodejs.org/en/download/)
 ``` bash
