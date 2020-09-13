@@ -6,7 +6,7 @@ tags:
 - build system
 ---
 
-- ## 指定安装库目录
+## 指定安装库目录
 
 ```bash
 cmake -DCMAKE_INSTALL_PREFIX=d:/code/libraries ..
