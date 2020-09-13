@@ -7,4 +7,4 @@ tags:
 
 ## Script lifecycle flowchart
 
-![](unity-lifecycle.assets/monobehaviour_flowchart.svg)
+![](unity-lifecycle/monobehaviour_flowchart.svg)
