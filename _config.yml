@@ -13,8 +13,8 @@ timezone:	Asia/Hong_Kong
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://zjhlogo.free.idcfengye.com/blog
-root: /blog
+url: http://raspberrypi4/blog
+root: /blog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
@@ -37,7 +37,7 @@ external_link:
 filename_case: 0
 render_drafts: false
 post_asset_folder: true
-relative_link: true
+relative_link: false
 future: true
 highlight:
   enable: true
@@ -74,18 +74,9 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: jekyll
+theme: Chic
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
-
-jekyll:
-  project: false
-  selfIntro: true
-  sign_image: image/bear.svg
-
-# Social
-social:
-  github: https://github.com/zjhlogo
