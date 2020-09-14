@@ -7,12 +7,12 @@ tags:
 ---
 
 ## 安装Samba
-```bash
+``` bash
 $ sudo apt-get install samba samba-common-bin
 ```
 
 ## 配置Samba
-```bash
+``` bash
 $ sudo nano /etc/samba/smb.conf
 ```
 
@@ -27,7 +27,7 @@ $ sudo nano /etc/samba/smb.conf
 ```
 
 ## 重启Samba服务
-```bash
+``` bash
 $ sudo service smbd restart
 ```
 
@@ -38,7 +38,7 @@ $ sudo service smbd restart
 
 ## 添加用户
 把本地已有的用户添加为samba用户，这里以用户名 ` pi ` 为例
-```bash
+``` bash
 $ sudo smbpasswd -a pi
 ```
 

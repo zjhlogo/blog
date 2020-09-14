@@ -6,28 +6,28 @@ tags:
 ---
 
 ## 插上硬盘，查看状态
-```bash
+``` bash
 $ sudo fdisk -l
 ```
 
 ## 先建一个目录 ，让树莓派挂载在创建的目录
-```bash
+``` bash
 $ mkdir nas
 ```
 
 ## 然后按照我们的希望挂载
-```bash
+``` bash
 $ sudo mount /dev/sda1 /home/pi/nas
 ```
 
 ## 安装NTFS格式可读写软件（可选）
-```bash
+``` bash
 $ sudo apt-get install ntfs-3g
 $ modprobe fuse # 加载内核模块
 ```
 
 ## 让移动硬盘开机自动挂载
-```bash
+``` bash
 $ sudo nano /etc/fstab
 ```
 
@@ -47,11 +47,11 @@ $ sudo nano /etc/fstab
       * 第二个代表fsck检查的顺序, 0表示不检查
 
 ## 挂载全部硬盘
-```bash
+``` bash
 $ sudo mount -a
 ```
 
 ## 卸载硬盘
-```bash
+``` bash
 $ sudo umount /home/pi/nas
 ```

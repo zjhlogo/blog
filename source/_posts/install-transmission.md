@@ -10,14 +10,14 @@ tags:
 
 ## 安装transmission
 
-```bash
+``` bash
 sudo apt update
 sudo apt install transmission-deamon
 ```
 
 ## 修改用户
 
-```bash
+``` bash
 sudo service transmission-daemon stop
 sudo nano /etc/init.d/transmission-daemon # change USER=pi
 sudo nano /lib/systemd/system/transmission-daemon.service # change USER=pi
@@ -33,7 +33,7 @@ sudo service transmission-daemon start
 
 重启transmission服务后，transmission会在`home/pi/.config/`下新建配置表文件`transmission-deamon`. 所以必须重新配置配置表
 
-```bash
+``` bash
 nano /home/pi/.config/transmission-daemon/setting.json # 修改 rpc-whitelist-enable: false
 sudo service transmission-daemon reload
 sudo service transmission-daemon restart
@@ -43,7 +43,7 @@ sudo service transmission-daemon restart
 
 可以安装[transmission-web-control](https://github.com/ronggang/transmission-web-control)增强`transmission-daemon`功能
 
-```bash
+``` bash
 wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control.sh
 chmod +x install-tr-control.sh
 ./install-tr-control-cn.sh

@@ -12,7 +12,7 @@ tags:
   作用于类上，将脚本置于 UnityEditor 顶部菜单栏 Component 菜单中的任意选项，而不局限于 Component->Scripts 选项下
    - 参数：menuName 菜单名称
 
-  ```c#
+  ``` csharp
   [AddComponentMenu("WarlGComponent/WarlGAttribute")]
   public class WarlGAttributeSample : MonoBehaviour
   {
@@ -27,7 +27,7 @@ tags:
 
   如：`WarlGMenu/Item #&g` 即 `shift-alt-G` `WarlGMenu/Item _g` 即仅适用 `G` 键
 
-  ```c#
+  ``` csharp
   [MenuItem("WarlGMenu/Item #&g")]
   static void WarlGMenuItem()
   {
@@ -41,7 +41,7 @@ tags:
 
 - RuntimeInitializeOnLoadMethod: Calls a method once before or after the first scene has loaded. Good for initializing Singletons without having to place objects in the scene.
 
-  ```c#
+  ``` csharp
   [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
   static void OnLoad()
   {

@@ -8,17 +8,17 @@ tags:
 
 ## 指定安装库目录
 
-```bash
+``` bash
 cmake -DCMAKE_INSTALL_PREFIX=d:/code/libraries ..
 ```
 之后就可以在 ` CMakeLists.txt ` 中使用该变量
-```cmake
+``` cmake
 # find glfw3 from library
 find_package(glfw3 PATHS ${CMAKE_INSTALL_PREFIX} NO_DEFAULT_PATH REQUIRED)
 ```
 
 ## 安装源代码
-```cmake
+``` cmake
 # generate export target
 install(TARGETS ${PROJECT_NAME}
         EXPORT ${PROJECT_NAME}-targets
@@ -36,7 +36,7 @@ install(DIRECTORY include DESTINATION include/${PROJECT_NAME})
 ```
 
 ## 判断编译位数
-```cmake
+``` cmake
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     set(ARCH_BITS "64") # 64 bit
 else()
@@ -45,7 +45,7 @@ endif()
 ```
 
 ## 设置输出文件名
-```cmake
+``` cmake
 # set output name for 'debug' build
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME_DEBUG ${PROJECT_NAME}d)
 # set output name for 'release' build
@@ -53,7 +53,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME_RELEASE ${PROJECT_N
 ```
 
 ## 设置输出文件目录
-```cmake
+``` cmake
 # set output path to bin folder
 set(OUTPUT_PATH bin)
 # set output path for runtime binary
@@ -63,7 +63,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${OUTP
 ```
 
 ## 文件按目录分组
-```cmake
+``` cmake
 # macro to group source file by folder
 macro(group_sources SOURCE_FILES)
     foreach(FILE ${SOURCE_FILES})
@@ -77,7 +77,7 @@ endmacro()
 ```
 
 之后在 ` CMakeLists.txt ` 中使用宏
-```cmake
+``` cmake
 set(SOURCE_FILES
 HelloWorldApp.cpp
 HelloWorldApp.h)
