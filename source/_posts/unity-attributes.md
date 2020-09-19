@@ -35,6 +35,21 @@ tags:
   ```
   
   
+  
+- CreateAssetMenu(fileName="file name", menuName="menu name")
+  Mark a ScriptableObject-derived type to be automatically listed in the Assets/Create submenu, so that instances of the type can be easily created and stored in the project as ".asset" files.
+  
+  ```csharp
+  // fileName: 新建asset默认文件名
+  // menuName: 在菜单中显示的菜单名
+  [CreateAssetMenu(fileName = "Card", menuName = "Card")]
+  public class Card : ScriptableObject
+  {
+  	public string cardName;
+  	public int hp;
+  	...
+  }
+  ```
 
 
 ## 其他
@@ -42,6 +57,8 @@ tags:
 - RuntimeInitializeOnLoadMethod: Calls a method once before or after the first scene has loaded. Good for initializing Singletons without having to place objects in the scene.
 
   ``` csharp
+  // 执行顺序:
+  // SubsystemRegistration -> BeforeSplashScreen -> AfterAssembliesLoaded -> BeforeSceneLoad -> AfterSceneLoad
   [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
   static void OnLoad()
   {
