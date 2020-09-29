@@ -33,7 +33,7 @@ $ sudo nano /etc/fstab
 
 最后一行添加
 ```
-/dev/sda1 /home/pi/nas auto defaults, noatime, umask=0000 0 0
+/dev/sda1 /home/pi/nas auto defaults,noatime,umask=0000 0 0
 ```
 
 说明：
