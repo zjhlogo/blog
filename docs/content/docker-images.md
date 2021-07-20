@@ -26,7 +26,7 @@ git 代码托管仓库
 
 ```bash
 docker pull ulm0/gitlab:latest
-docker run -d --network macvlan_1 --ip=192.168.10.3 --cap-add=NET_ADMIN --cap-add=SYS_ADMIN --device=/dev/net/tun --hostname gitlab.zjhlogo.io --name gitlab --restart always -v /home/pi/nas/gitlab-ce/config:/etc/gitlab -v /home/pi/nas/gitlab-ce/logs:/var/log/gitlab -v /home/pi/nas/gitlab-ce/data:/var/opt/gitlab ulm0/gitlab
+docker run -d --privileged --network macvlan_1 --ip=192.168.10.3 --cap-add=NET_ADMIN --cap-add=SYS_ADMIN --device=/dev/net/tun --hostname gitlab.zjhlogo.io --name gitlab --restart always -v /home/pi/nas/gitlab-ce/config:/etc/gitlab -v /home/pi/nas/gitlab-ce/logs:/var/log/gitlab -v /home/pi/nas/gitlab-ce/data:/var/opt/gitlab ulm0/gitlab
 
 # 调整配置文件 /etc/gitlab/gitlab.rb
 # gitlab-ctl reconfigure
@@ -34,8 +34,10 @@ docker run -d --network macvlan_1 --ip=192.168.10.3 --cap-add=NET_ADMIN --cap-ad
 
 # 安装 zerotier
 curl -s https://install.zerotier.com | bash
+# 可能会报错 could not resolve host 'xxx', 需添加 host -> /etc/hosts xxx.xxx.xxx.xxx 'xxx'
+
 zerotier-one -d
-zerotier-cli join 565799d8f665b8d4
+zerotier-cli join 0cccb752f7c070e8
 
 # 带 zerotier 的 gitlab
 docker run -d --network macvlan_1 --ip=192.168.10.3 --cap-add=NET_ADMIN --cap-add=SYS_ADMIN --device=/dev/net/tun --hostname gitlab.zjhlogo.io --name gitlab --restart always -v /home/pi/nas/gitlab-ce/config:/etc/gitlab -v /home/pi/nas/gitlab-ce/logs:/var/log/gitlab -v /home/pi/nas/gitlab-ce/data:/var/opt/gitlab zjhlogo/gitlab
