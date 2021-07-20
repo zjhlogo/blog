@@ -86,3 +86,41 @@ For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 ```
 
+## 常用指令
+
+```bash
+# 查看容器
+docker container ls
+
+# 查看镜像
+docker image ls
+
+# 进入容器bash
+docker exec -it xxx /bin/bash
+
+# 创建镜像文件
+docker container ls
+
+> CONTAINER ID   IMAGE                 COMMAND             CREATED        STATUS                       PORTS     NAMES
+> a41579d1381f   ulm0/gitlab           "/assets/wrapper"   2 hours ago    Up About an hour (healthy)             gitlab
+> 03f85658e895   portainer/portainer   "/portainer"        7 months ago   Up 9 days                              portainer
+
+docker commit a41579d1381f zjhlogo/gitlab
+
+# 导出镜像文件
+docker image ls
+
+> REPOSITORY            TAG       IMAGE ID       CREATED         SIZE
+> zjhlogo/gitlab        latest    5d16c3ae35ac   6 seconds ago   2.02GB
+> ulm0/gitlab           latest    0860a6674564   3 months ago    1.98GB
+> portainer/portainer   latest    dbf28ba50432   12 months ago   62.5MB
+
+docker save 5d16c3ae35ac > zjhlogo-gitlab.tar
+
+# 导入镜像文件
+docker load < zjhlogo-gitlab.tar
+
+# 修改标签
+docker tag imageid zjhlogo/gitlab
+```
+
