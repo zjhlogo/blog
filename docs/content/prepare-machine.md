@@ -13,6 +13,12 @@
 ```bash
 #!/bin/bash
 echo ======================================================
+echo upgrade packages ...
+echo ======================================================
+apt update
+apt upgrade
+
+echo ======================================================
 echo setting up hard drivers...
 echo ======================================================
 mkdir /home/pi/nas
@@ -40,21 +46,21 @@ echo ======================================================
 echo setting up zerotier...
 echo ======================================================
 curl -s https://install.zerotier.com | bash
-zerotier-cli join 565799d8f665b8d4
+zerotier-cli join 0cccb752f7c070e8
 
 echo ======================================================
 echo setting up python...
 echo ======================================================
-sudo apt-get install -y libffi-dev libssl-dev
-sudo apt-get install -y python3 python3-pip
+apt-get install -y libffi-dev libssl-dev
+apt-get install -y python3 python3-pip
 
 echo ======================================================
 echo setting up docker...
 echo ======================================================
-sudo curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
-sudo usermod -aG docker pi
-sudo docker run hello-world
-sudo pip3 -v install docker-compose
+curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
+usermod -aG docker pi
+docker run hello-world
+pip3 -v install docker-compose
 
 ```
 
