@@ -59,3 +59,38 @@ echo "Login DN: cn=admin,dc=example,dc=org"
 echo "Password: admin"
 ```
 
+## MySQL
+
+MySQL is the world's most popular open source database. With its proven performance, reliability and ease-of-use, MySQL has become the leading database choice for web-based applications, covering the entire range from personal projects and websites, via e-commerce and information services, all the way to high profile web properties including Facebook, Twitter, YouTube, Yahoo! and many more.
+
+```bash
+docker run -d --privileged --network macvlan_1 --ip=192.168.10.6 --name mysql -e MYSQL_ROOT_PASSWORD=12345tgb -v /home/pi/nas/persistence/mysql/data:/var/lib/mysql --restart always biarms/mysql
+```
+
+## Mariadb
+
+```bash
+docker run -d --privileged --network macvlan_1 --ip=192.168.10.7 --name=mariadb -e PUID=1000 -e PGID=1000 -e MYSQL_ROOT_PASSWORD=12345tgb -e TZ=Asia/Hong_Kong -v /home/pi/nas/persistence/mariadb:/config --restart always ghcr.io/linuxserver/mariadb
+```
+
+## PIWIGO
+
+Manage your photo library. Piwigo is open source photo gallery software for the web. Designed for organisations, teams and individuals.
+
+```bash
+docker run -d --privileged --network macvlan_1 --ip=192.168.10.8 --name piwigo -e PUID=1000 -e PGID=1000 -e TZ=Asia/Hong_Kong -v /home/pi/nas/persistence/piwigo/config:/config -v /home/pi/nas/persistence/piwigo/gallery:/gallery --restart always ghcr.io/linuxserver/piwigo
+```
+
+
+## Lychee
+
+```bash
+docker run -d --privileged --network macvlan_1 --ip=192.168.10.9 --name=lychee -v /home/pi/nas/persistence/lychee/conf:/conf -v /home/pi/nas/persistence/lychee/uploads:/uploads -v /home/pi/nas/persistence/lychee/sym:/sym -e PUID=1000 -e PGID=1000 -e PHP_TZ=Asia/Hong_Kong -e DB_CONNECTION=mysql -e DB_HOST=192.168.10.7 -e DB_PORT=3306 -e DB_DATABASE=lychee -e DB_USERNAME=lychee -e DB_PASSWORD=lychee12345tgb lycheeorg/lychee
+
+# enter mariadb and create databases
+create database lychee;
+create user 'lychee'@'%' identified by 'lychee12345tgb';
+grant all privileges on lychee.* to 'lychee'@'%';
+
+```
+

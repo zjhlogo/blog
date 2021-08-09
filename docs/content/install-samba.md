@@ -36,7 +36,18 @@ $ sudo service smbd restart
 $ sudo smbpasswd -a pi
 ```
 
+给管理员添加写入权限
+
+```bash
+$ sudo nano /etc/samba/smb.conf
+
+[homes]
+   ...
+   browseable = no # 可写入
+```
+
 配置完成后即可从局域网内其他电脑访问用户目录 `/home/pi/ `
+
 ```
 \\raspberrypi4\pi
 ```
