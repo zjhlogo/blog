@@ -26,7 +26,9 @@ sudo service transmission-daemon start
 重启transmission服务后，transmission会在`home/pi/.config/`下新建配置表文件`transmission-deamon`. 所以必须重新配置配置表
 
 ``` bash
-nano /home/pi/.config/transmission-daemon/setting.json # 修改 rpc-whitelist-enable: false
+nano /home/pi/.config/transmission-daemon/setting.json # 修改 rpc-host-whitelist:"rpi4.zjhlogo.io"
+nano /home/pi/.config/transmission/setting.json # 修改 rpc-host-whitelist:"rpi4.zjhlogo.io"
+
 sudo service transmission-daemon reload
 sudo service transmission-daemon restart
 ```
