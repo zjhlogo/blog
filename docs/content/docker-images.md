@@ -15,7 +15,6 @@ docker network create --driver macvlan --subnet 192.168.10.0/8 --gateway 192.168
 docker web管理终端
 
 ```bash
-docker pull portainer/portainer
 docker volume create portainer_data
 docker run -d --network macvlan_1 --ip=192.168.10.2 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 ```
@@ -25,8 +24,7 @@ docker run -d --network macvlan_1 --ip=192.168.10.2 --name portainer --restart a
 git 代码托管仓库
 
 ```bash
-docker pull ulm0/gitlab:latest
-docker run -d --privileged --network macvlan_1 --ip=192.168.10.3 --cap-add=NET_ADMIN --cap-add=SYS_ADMIN --device=/dev/net/tun --hostname gitlab.zjhlogo.io --name gitlab --restart always -v /home/pi/nas/gitlab-ce/config:/etc/gitlab -v /home/pi/nas/gitlab-ce/logs:/var/log/gitlab -v /home/pi/nas/gitlab-ce/data:/var/opt/gitlab ulm0/gitlab
+docker run --detach --restart always --name gitlab --privileged --network macvlan_1 --ip=192.168.10.3 --hostname gitlab.zjhlogo.io --env GITLAB_OMNIBUS_CONFIG=" nginx['redirect_http_to_https'] = true; " -v /home/ubuntu/nas/persistence/gitlab/config:/etc/gitlab -v /home/ubuntu/nas/persistence/gitlab/logs:/var/log/gitlab -v /home/ubuntu/nas/persistence/gitlab/data:/var/opt/gitlab yrzr/gitlab-ce-arm64v8:latest
 
 # 调整配置文件 /etc/gitlab/gitlab.rb
 # gitlab-ctl reconfigure
@@ -92,5 +90,11 @@ create database lychee;
 create user 'lychee'@'%' identified by 'lychee12345tgb';
 grant all privileges on lychee.* to 'lychee'@'%';
 
+```
+
+## nginx-php7
+
+```ba
+docker run -d --network macvlan_1 --ip=192.168.10.10 --name nginx-php7 -v /home/ubuntu/nas/persistence/nginx-php7/wwwroot:/data/wwwroot --restart always skiychan/nginx-php7
 ```
 
