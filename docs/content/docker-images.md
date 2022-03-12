@@ -78,3 +78,9 @@ grant all privileges on lychee.* to 'lychee'@'%';
 ```bash
 docker run -d --network zjhlogo_net --ip=111.111.111.10 --name nginx-php7 -v /home/ubuntu/nas/persistence/nginx-php7/wwwroot:/data/wwwroot --restart always skiychan/nginx-php7
 ```
+
+## latex
+
+```shell
+docker run -d --network zjhlogo_net --ip=111.111.111.11 --name sharelatex --restart always sdanaipat/sharelatex
+```
