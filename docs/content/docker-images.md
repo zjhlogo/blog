@@ -84,3 +84,9 @@ docker run -d --network zjhlogo_net --ip=111.111.111.10 --name nginx-php7 -v /ho
 ```shell
 docker run -d --network zjhlogo_net --ip=111.111.111.11 --name sharelatex --restart always sdanaipat/sharelatex
 ```
+
+## carlibre-web
+
+```shell
+docker run -d --network zjhlogo_net --ip=111.111.111.12 --name calibre-web -e PUID=1000 -e PGID=1000 -e DOCKER_MODS=linuxserver/calibre-web:calibre `#optional` -e OAUTHLIB_RELAX_TOKEN_SCOPE=1 `#optional` -v /home/ubuntu/nas/persistence/carlibre-web/config:/config -v /home/ubuntu/nas/persistence/carlibre-web/books:/books --restart always linuxserver/calibre-web
+```
