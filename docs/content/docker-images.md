@@ -90,3 +90,13 @@ docker run -d --network zjhlogo_net --ip=111.111.111.11 --name sharelatex --rest
 ```shell
 docker run -d --network zjhlogo_net --ip=111.111.111.12 --name calibre-web -e PUID=1000 -e PGID=1000 -e DOCKER_MODS=linuxserver/calibre-web:calibre `#optional` -e OAUTHLIB_RELAX_TOKEN_SCOPE=1 `#optional` -v /home/ubuntu/nas/persistence/carlibre-web/config:/config -v /home/ubuntu/nas/persistence/carlibre-web/books:/books --restart always linuxserver/calibre-web
 ```
+
+## memos
+```shell
+docker run -d --network zjhlogo_net --ip=111.111.111.13 --name memos -v /home/ubuntu/nas/persistence/memos:/var/opt/memos --restart always neosmemo/memos
+```
+
+## nextcloud
+```shell
+docker run -d --network zjhlogo_net --ip=111.111.111.14 --name nextcloud -e APACHE_DISABLE_REWRITE_IP=1 -e OVERWRITEHOST=nextcloud.zjhlogo.io -e NEXTCLOUD_TRUSTED_DOMAINS=nextcloud.zjhlogo.io -v /home/ubuntu/nas/persistence/nextcloud:/var/www/html --restart always nextcloud
+```
