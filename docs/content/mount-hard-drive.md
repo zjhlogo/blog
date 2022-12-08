@@ -12,7 +12,7 @@ $ mkdir nas
 
 ## 然后按照我们的希望挂载
 ``` bash
-$ sudo mount /dev/sda1 /home/pi/nas
+$ sudo mount /dev/sda1 /home/zjhlogo/nas
 ```
 
 ## 安装NTFS格式可读写软件（可选）
@@ -28,7 +28,7 @@ $ sudo nano /etc/fstab
 
 最后一行添加
 ```
-/dev/sda1 /home/pi/nas auto defaults,noatime,umask=0000 0 0
+/dev/sda1 /home/zjhlogo/nas auto defaults,noatime,umask=0000 0 0
 ```
 
 说明：
@@ -48,5 +48,16 @@ $ sudo mount -a
 
 ## 卸载硬盘
 ``` bash
-$ sudo umount /home/pi/nas
+$ sudo umount /home/zjhlogo/nas
+```
+
+## 方法2
+```
+$ sudo blkid
+/dev/mmcblk0p1: LABEL_FATBOOT="boot" LABEL="boot" UUID="6341-C9E5" TYPE="vfat" PARTUUID="ea7d04d6-01"
+/dev/mmcblk0p2: LABEL="rootfs" UUID="80571af6-21c9-48a0-9df5-cffb60cf79af" TYPE="ext4" PARTUUID="ea7d04d6-02"
+/dev/sda1: UUID="FC05-DF26" TYPE="vfat" PARTUUID="2d72d270-01"
+
+# add line into /etc/fstab
+PARTUUID=2d72d270-01 /mnt/usb0 ext4 defaults,auto,users,rw,nofail 0 0
 ```

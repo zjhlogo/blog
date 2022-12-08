@@ -98,5 +98,5 @@ docker run -d --network zjhlogo_net --ip=111.111.111.13 --name memos -v /home/ub
 
 ## nextcloud
 ```shell
-docker run -d --network zjhlogo_net --ip=111.111.111.14 --name nextcloud -e APACHE_DISABLE_REWRITE_IP=1 -e OVERWRITEHOST=nextcloud.zjhlogo.io -e NEXTCLOUD_TRUSTED_DOMAINS=nextcloud.zjhlogo.io -v /home/ubuntu/nas/persistence/nextcloud:/var/www/html --restart always nextcloud
+docker run -d --network zjhlogo_net --ip=111.111.111.14 --name nextcloud -e APACHE_DISABLE_REWRITE_IP=1 -e OVERWRITEHOST=192.168.10.110 -e NEXTCLOUD_TRUSTED_DOMAINS=192.168.10.110 -p 2284:80 -v /home/ubuntu/nas/persistence/nextcloud:/var/www/html --restart always nextcloud
 ```
