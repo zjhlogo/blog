@@ -28,7 +28,11 @@ $ sudo nano /etc/fstab
 
 最后一行添加
 ```
+# raspiberry pi os
 /dev/sda1 /home/zjhlogo/nas auto defaults,noatime,umask=0000 0 0
+
+# ubuntu
+/dev/sda1 /home/zjhlogo/nas auto defaults,noatime 0 0
 ```
 
 说明：
