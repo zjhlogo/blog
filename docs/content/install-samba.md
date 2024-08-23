@@ -13,11 +13,11 @@ $ sudo nano /etc/samba/smb.conf
 在文件最下面加上以下内容，这里设置 ` /home/zjhlogo/nas/share ` 为共享文件夹
 ```
 [share]
-   comment = share folder  # 共享文件夹说明
-   path = /home/zjhlogo/nas/share # 共享文件夹目录
-   read only = yes # 只读
-   guest ok = yes # guest访问，无需密码
-   browseable = yes # 可见
+   comment = share folder
+   path = /mnt/disk/downloads/share
+   read only = yes
+   guest ok = yes
+   browseable = yes
 ```
 
 ## 重启Samba服务
@@ -41,13 +41,13 @@ $ sudo smbpasswd -a zjhlogo
 ```bash
 $ sudo nano /etc/samba/smb.conf
 
-[homes]
-   ...
-   browseable = no # 可写入
+[share]
+   comment = share folder
+   path = /mnt/disk
+   read only = yes
+   guest ok = no
+   browseable = yes
+   valid users = zjhlogo
 ```
 
-配置完成后即可从局域网内其他电脑访问用户目录 `/home/zjhlogo/ `
-
-```
-\\rpi4\zjhlogo
-```
+配置完成后即可从局域网内其他电脑访问共享目录
